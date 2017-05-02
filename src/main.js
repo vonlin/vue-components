@@ -4,7 +4,9 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 // import App from './App'
 // import router from './router'
-import Home from '@/components/Home'
+import routes from './router';
+import Homepage from '@/components/Main'
+
 
 import 'normalize.css'
 import '../static/css/style.css'
@@ -14,12 +16,7 @@ Vue.config.productionTip = false
 Vue.use(VueRouter)
 
 const router = new VueRouter({
-  routes: [
-    {
-      path: '/home',
-      name: 'home'
-    }
-  ],
+  routes,
   linkActiveClass: 'active'
 })
 /* eslint-disable no-new */
@@ -33,6 +30,13 @@ const router = new VueRouter({
 new Vue({
   el: '#app',
   router,
-  template: '<Home/>',
-  components: { Home }
-})
+  template: '<Homepage/>',
+  components: { Homepage }
+});
+
+router.beforeEach((route, redirect, next) => {
+  if (route.path !== '/') {
+  }
+  document.title = route.meta.title || document.title;
+  next();
+});
