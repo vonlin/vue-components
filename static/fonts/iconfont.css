@@ -1,0 +1,85 @@
+
+@font-face {font-family: "iconfont";
+  src: url('iconfont.eot?t=1493373682775'); /* IE9*/
+  src: url('iconfont.eot?t=1493373682775#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('iconfont.woff?t=1493373682775') format('woff'), /* chrome, firefox */
+  url('iconfont.ttf?t=1493373682775') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+  url('iconfont.svg?t=1493373682775#iconfont') format('svg'); /* iOS 4.1- */
+}
+
+.iconfont::before{
+  font-family:"iconfont" !important;
+  font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #3bb593;
+  font-size:20px;
+  position: absolute;
+  top:28%;
+  font-weight: 500;
+  left:5px;
+}
+
+li.Search:before { content: "\e672"; }
+
+li.Header:before { content: "\e71c"; }
+
+li.Checkbox:before { content: "\e604";}
+
+.icon-header1:before { content: "\e8ed"; }
+
+li.Tabbar:before { content: "\e605"; }
+
+.icon-cellmerge:before { content: "\e608"; }
+
+li.Button:before { content: "\e8bb"; }
+
+li.Cell:before { content: "\e62d"; }
+
+li.Navbar:before { content: "\e657"; }
+
+li.Loading:before { content: "\e67c"; }
+
+li.Progress:before { content: "\e674"; }
+
+li.Input:before { content: "\e622";}
+
+li.Pull-up-down-refresh:before { content: "\e64c"; }
+
+li.Badge:before { content: "\e6aa"; }
+
+li.Message-box:before { content: "\e76b"; }
+
+li.Toast:before { content: "\e803"; }
+
+li.Radio:before { content: "\e797"; }
+
+li.Swipe:before { content: "\e6cd"; }
+
+li.Index-List:before { content: "\e606"; }
+
+li.Fileupload:before { content: "\e76c"; }
+
+li.Popup:before { content: "\e61a"; }
+
+li.DateTime:before { content: "\e619"; }
+
+li.DateTime:before { content: "\ed99"; }
+
+li.Range:before { content: "\e679"; }
+
+li.Switch:before { content: "\e6d6"; font-size:14px;top:40%;}
+
+li.Select:before { content: "\e609"; }
+
+li.Infinite-scroll:before,
+li.Textarea:before,
+li.Pop-list:before,
+li.Lazy-load:before,
+li.City-Relative:before,
+li.Picker:before,
+li.Swipe-Cell:before,
+li.Loading-Cell:before,
+li.Form:before
+{ content: "\e60d"; }
+
