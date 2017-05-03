@@ -1,7 +1,8 @@
 <template>
   <div id="Main">
+    <router-view name="cheader"></router-view>
     <div class="dn"></div>
-    <router-view></router-view>
+    <router-view name="cmain"></router-view>
   </div>
 </template>
 

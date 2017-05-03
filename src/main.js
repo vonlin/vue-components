@@ -28,7 +28,7 @@ const router = new VueRouter({
 // })
 
 new Vue({
-  el: '#app',
+  el: '#Main',
   router,
   template: '<Homepage/>',
   components: { Homepage }
@@ -40,3 +40,4 @@ router.beforeEach((route, redirect, next) => {
   document.title = route.meta.title || document.title;
   next();
 });
+
