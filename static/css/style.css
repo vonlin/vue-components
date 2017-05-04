@@ -2,11 +2,20 @@
 html,body,ul,li,section,h1,h2,h3,h4,h5,h6,article{
   margin:0;
   padding:0;
-  width:100%;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   font-family: "微软雅黑", "Arial", "Microsoft YaHei"
+}
+html,body{
+  height:100%;
+  width:100%;
+  overflow:hidden;
+}
+*{
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
 ul li{
   list-style: none;
@@ -18,7 +27,7 @@ a{
 .dn{
   display:none;
 }
-
 .dn+div{
-  margin-top:51px;
+  height:calc(100vh - 50px);
+  overflow:auto;
 }

@@ -1,23 +1,51 @@
 <template>
-  <header>公共头部</header>
+  <header>
+    <span class="back" :class="isBack" v-on:touchstart="back">返回</span>
+    {{$route.params.type || "组件列表"}}
+  </header>
 </template>
 
 <script>
   export default {
-      name : 'cheader'
+      name : 'cheader',
+      computed: {
+          isBack () {
+              return this.$route.params.type ? "" : "dn";
+          }
+      },
+      methods: {
+          back () {
+              window.history.back();
+          }
+      }
   }
 </script>
 
 <style scoped>
   header{
-    position:fixed;
     top:0;
     left:0;
     width:100%;
     padding:16px 0;
-    border-bottom: 1px solid #bbbbbb;
     text-align: center;
-    z-index: 10;
-    background: #f5f5f5;
+    position:relative;
+  }
+  .back{
+    position:absolute;
+    height:50px;
+    left:16px;
+    line-height: 50px;
+    top:0;
+  }
+  .back::before{
+    content:'';
+    display: inline-block;
+    height:9px;
+    width:9px;
+    margin-right:2px;
+    border-top:1px solid #000;
+    border-left:1px solid #000;
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
   }
 </style>
