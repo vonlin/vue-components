@@ -6,7 +6,7 @@ const registerRoute = (config) => {
   config.map(page =>
     route.push({
       name: page.cname,
-      path: page.cpath + "/:type",
+      path: page.cpath,
       components: {cmain:require(`./components${page.cpath}${page.cpath}`), cheader:cheader},
       meta: {
         title: page.cname

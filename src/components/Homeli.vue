@@ -1,6 +1,6 @@
 <template>
   <li v-bind:ckey="ckey" class="iconfont" v-bind:class="ckey">
-      <router-link v-bind:to="dynaPath">
+      <router-link v-bind:to="cpath">
         {{labelText}}
       </router-link>
   </li>
@@ -18,9 +18,6 @@
     computed: {
       labelText () {
         return this.ckey + ' (' + this.cname + ')';
-      },
-      dynaPath () {
-          return this.cpath + "/" +this.cname;
       }
     }
   }

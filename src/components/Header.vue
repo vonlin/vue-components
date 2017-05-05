@@ -1,7 +1,7 @@
 <template>
   <header>
     <span class="back" :class="isBack" v-on:touchstart="back">返回</span>
-    {{$route.params.type || "组件列表"}}
+    {{$route.name || "组件列表"}}
   </header>
 </template>
 
@@ -10,7 +10,7 @@
       name : 'cheader',
       computed: {
           isBack () {
-              return this.$route.params.type ? "" : "dn";
+              return this.$route.name ? "" : "dn";
           }
       },
       methods: {
