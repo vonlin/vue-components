@@ -31,3 +31,9 @@ a{
   height:calc(100vh - 50px);
   overflow:auto;
 }
+.fl{
+  float:left;
+}
+.fr{
+  float:right;
+}
