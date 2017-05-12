@@ -29,7 +29,9 @@ a{
 }
 .dn+div{
   height:calc(100vh - 50px);
-  overflow:auto;
+  overflow-y:auto;
+  overflow-x:hidden;
+  width:100%;
 }
 .fl{
   float:left;
