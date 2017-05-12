@@ -19,12 +19,14 @@
       <span class="dt-confirm" v-on:touchstart="confirm">完成</span>
       <span class="fr" v-on:touchstart="toHSM" v-show="currType">时分秒&gt;</span>
     </div>
-    <div class="dt-container" v-bind:class="swipeClass">
-      <!--<dtcell v-for="col in cols" v-bind:coltype="col"></dtcell>-->
-      <div class="dt-cell-col" v-for="col in coltypes">
-        <ul v-bind:coltype="col" v-datescroll="scrollEnd" v-bind:data-scrolltop="scrolltopvalue(col)">
-          <li class="dt-cell-row" v-for="data in getCols(col)">{{data}}</li>
-        </ul>
+    <div class="dt-container-wrap">
+      <div class="dt-container" v-bind:class="swipeClass">
+        <!--<dtcell v-for="col in cols" v-bind:coltype="col"></dtcell>-->
+        <div class="dt-cell-col" v-for="col in coltypes">
+          <ul v-bind:coltype="col" v-datescroll="scrollEnd" v-bind:data-scrolltop="scrolltopvalue(col)">
+            <li class="dt-cell-row" v-for="data in getCols(col)">{{data}}</li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
@@ -166,15 +168,19 @@
   .dt-container,.dt-container-mask{
     width: 200%;
     height: 200px;
-    position: absolute;
+    /*position: absolute;*/
     z-index: 11;
     bottom: 0;
     display: -webkit-box;
     overflow: hidden;
     /*background: -webkit-linear-gradient(top, rgb(247, 247, 247), #f1f1f1 88px, rgb(247, 247, 247),rgb(247, 247, 247),#f1f1f1 110px, rgb(247, 247, 247));*/
   }
-  .dt-container{
-    /*opacity:0;*/
+  .dt-container-wrap{
+    width: 100%;
+    overflow: hidden;
+    position: absolute;
+    bottom: 0;
+    overflow:hidden;
   }
   .dt-container-mask{
     width:100%;

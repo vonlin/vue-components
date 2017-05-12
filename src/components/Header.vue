@@ -1,6 +1,9 @@
 <template>
   <header>
-    <span class="back" :class="isBack" v-on:touchstart="back">返回</span>
+    <router-link v-bind:to="'home'" :class="isBack" class="back">
+      返回
+      </router-link>
+    <!--<span class="back" :class="isBack" v-on:touchstart="back">返回</span>-->
     {{$route.name || "组件列表"}}
   </header>
 </template>
@@ -11,12 +14,7 @@
       computed: {
           isBack () {
               return this.$route.name ? "" : "dn";
-          }
-      },
-      methods: {
-          back () {
-              window.history.back();
-          }
+          },
       }
   }
 </script>
