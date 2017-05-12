@@ -21,7 +21,7 @@ const route = registerRoute(configs);
 
 route.route.push({
   path: '/',
-  component: require('./components/Main')
+  components: {cmain:require('./components/Home'),cheader:cheader},
 },{
   path: '/home',
   components: {cmain:require('./components/Home'),cheader:cheader},
