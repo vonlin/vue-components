@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="user-scalable=no, width=device-width, maximum-scale=1.0"/>
+  <title>Button Demo</title>
+  <script src="../vue.js"></script>
+  <script src="../vc.min.js"></script>
+</head>
+<body>
+  <div id="app">
+    {{msg}}
+    <Btn></Btn>
+  </div>
+</body>
+<script>
+  var Btn = vc.Button;
+  new Vue({
+    el: "#app",
+    data : {
+        msg: "This is my first vue button!!!"
+    },
+    components: {Btn}
+  });
+</script>
+</html>

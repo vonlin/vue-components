@@ -11,6 +11,13 @@ import Homepage from '@/components/Main'
 import 'normalize.css'
 import '../static/css/style.css'
 
+var FastClick = require('../static/lib/fastclick')
+if ('addEventListener' in document) {
+  document.addEventListener('DOMContentLoaded', function() {
+    FastClick.attach(document.body);
+  }, false);
+}
+
 Vue.config.productionTip = false
 
 Vue.use(VueRouter)
@@ -34,10 +41,23 @@ new Vue({
   components: { Homepage }
 });
 
+let indexScrollTop = 0;
 router.beforeEach((route, redirect, next) => {
-  if (route.path !== '/') {
+  if (route.path !== '/home') {
+    indexScrollTop = document.getElementById("home").scrollTop;
   }
   document.title = route.meta.title || document.title;
   next();
 });
+
+router.afterEach(route => {
+  if (route.path !== '/home') {
+    document.body.scrollTop = 0;
+  } else {
+    Vue.nextTick(() => {
+      document.getElementById("home").scrollTop = indexScrollTop;
+    });
+  }
+});
+
 
