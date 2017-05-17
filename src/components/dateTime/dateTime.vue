@@ -8,13 +8,18 @@
 
 <script>
   import datetime from './index.vue'
-
+  import { bus } from '../../bus.js'
   export default {
     name: 'DateTime',
     data () {
       return {
         cshow:"dn"
       }
+    },
+    mounted() {
+      bus.$on('hideOrShow', (cls) => {
+        this.cshow = cls;
+      })
     },
     methods: {
       show () {

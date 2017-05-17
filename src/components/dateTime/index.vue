@@ -23,6 +23,7 @@
 <script>
   import $Util from '../../assets/javascripts/util'
   import '../../directives/datescroll'
+  import { bus } from '../../bus.js'
   var targetEl = null;
   export default {
     name: 'DateTime',
@@ -76,7 +77,7 @@
       confirm (e) {
         targetEl = targetEl || document.getElementById(this.target);
         targetEl.innerText = this.selectYear + "年" + this.selectMonth + "月" + this.selectDay + "日" + this.selectHour + "时" + this.selectMinute + "分" + this.selectSecond + "秒";
-        this.cshow = 'fadeOut';
+        bus.$emit('hideOrShow', "fadeOut")
       },
       scrolltopvalue (coltype) {
         let _index = this.coldatas[coltype].datas.indexOf(this.coldatas[coltype].curr) - 3;
@@ -149,10 +150,6 @@
           maskTypes = ["H", "MI", "S"];
         }
         return maskTypes;
-      },
-      maskColTypes () {
-        var maskColTypes;
-
       }
     }
   }

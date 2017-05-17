@@ -11,6 +11,7 @@ import Homepage from '@/components/Main'
 import 'normalize.css'
 import '../static/css/style.css'
 
+
 var FastClick = require('../static/lib/fastclick')
 if ('addEventListener' in document) {
   document.addEventListener('DOMContentLoaded', function() {
