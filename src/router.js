@@ -7,7 +7,7 @@ const registerRoute = (config) => {
     route.push({
       name: page.cname,
       path: page.cpath,
-      components: {cmain:require(`./components${page.cpath}${page.cpath}`), cheader:cheader},
+      components: {cmain:require(`./components${page.cpath}${page.cpath}.vue`), cheader:cheader},
       meta: {
         title: page.cname
       }
