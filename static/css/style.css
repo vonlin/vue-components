@@ -41,3 +41,6 @@ a{
 .fr{
   float:right;
 }
+.opacity-0{
+  opacity: 0;
+}
