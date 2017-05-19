@@ -31,7 +31,7 @@
         showToast (position) {
           Toast({
             msg: 'This is a Toast',
-            duration: 200000,
+            duration: 2000,
             position: position,
             afterLeave: function(){
               console.log("callback")
