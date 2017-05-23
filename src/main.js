@@ -8,7 +8,7 @@ import routes from './router';
 import Homepage from '@/components/Main'
 
 
-import 'normalize.css'
+import '../static/css/normalize.css'
 import '../static/css/style.css'
 
 

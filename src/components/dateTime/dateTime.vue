@@ -1,36 +1,35 @@
 <template>
   <div>
-    <button v-on:touchstart="show">点击弹出/隐藏日期控件</button>
-    <div id="dt-fill" v-on:touchstart="show"></div>
-    <datetime v-bind:cshow="cshow" v-bind:target="'dt-fill'"></datetime>
+    <button v-on:click="showDT">点击弹出日期控件</button>
+    <div id="dt-fill" v-on:click="showDT"></div>
   </div>
 </template>
 
 <script>
-  import datetime from './index.vue'
+  import DateTime from './dateTime.js'
+  import Toast from '../toast/toast.js'
   import { bus } from '../../bus.js'
+  var dateTime = null;
   export default {
     name: 'DateTime',
-    data () {
-      return {
-        cshow:"dn"
-      }
-    },
-    mounted() {
-      bus.$on('hideOrShow', (cls) => {
-        this.cshow = cls;
-      })
-    },
     methods: {
-      show () {
-        if(this.cshow == "fadeIn"){
-          this.cshow = "fadeOut";
+      showDT (el) {
+        if(!dateTime){
+          dateTime = new DateTime({
+            bindEl: document.getElementById("dt-fill"),
+            confirmCallback (data) {
+              Toast({
+                msg: data,
+                icon: 'toast-icon-right'
+              });
+            }
+          });
         }else{
-          this.cshow = "fadeIn";
+          dateTime.show = true;
         }
       }
     },
-    components : {datetime}
+//    components : {datetime}
   }
 </script>
 

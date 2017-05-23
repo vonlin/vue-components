@@ -10,17 +10,37 @@
 <body>
   <div id="app">
     {{msg}}
-    <Btn></Btn>
   </div>
+<div id="dt-fill"></div>
+<button onclick="show()">click</button>
 </body>
 <script>
-  var Btn = vc.Button;
-  new Vue({
-    el: "#app",
-    data : {
-        msg: "This is my first vue button!!!"
-    },
-    components: {Btn}
-  });
+
+  var Toast = vc.Toast;
+  var DateTime = vc.DateTime;
+  var MessageBox = vc.MessageBox;
+
+
+
+//  var dt=null;
+  function show(){
+//      if(!dt){
+//        dt = new DateTime({
+//          bindEl: document.getElementById("dt-fill"),
+//          confirmCallback (data) {
+//            Toast({
+//              msg: data,
+//              icon: 'toast-icon-right'
+//            });
+//          }
+//        });
+//      }else{
+//          dt.show= true;
+//      }
+    MessageBox({
+      msg: "这是一个弹框",
+      type:'cancel-ok'
+    });
+  }
 </script>
 </html>

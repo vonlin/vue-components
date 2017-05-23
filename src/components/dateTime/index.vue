@@ -1,37 +1,36 @@
 <template>
-  <div v-bind:class="cshow">
-    <div class="dt-opt">
-      <span class="fl" v-on:touchstart="toYMD" v-show="!currType">&lt;年日月</span>
-      <span class="dt-confirm" v-on:touchstart="confirm">完成</span>
-      <span class="fr" v-on:touchstart="toHSM" v-show="currType">时分秒&gt;</span>
-    </div>
-    <div class="mask"></div>
-    <div class="selectRect"></div>
-    <div class="dt-container-wrap">
-      <div class="dt-container" v-bind:class="swipeClass">
-        <!--<dtcell v-for="col in cols" v-bind:coltype="col"></dtcell>-->
-        <div class="dt-cell-col" v-for="col in coltypes">
-          <ul v-bind:coltype="col" v-datescroll="scrollEnd" v-bind:data-scrolltop="scrolltopvalue(col)">
-            <li class="dt-cell-row" v-for="data in getCols(col)">{{data}}</li>
-          </ul>
+  <transition name="pop" enter-active-class="fadeIn" leave-active-class="fadeOut" v-on:after-leave="afterLeave">
+    <div v-show="show">
+      <div class="dt-opt">
+        <span class="fl" v-on:click="toYMD" v-show="!currType">&lt;年日月</span>
+        <span class="dt-confirm" v-on:click="confirm">完成</span>
+        <span class="fr" v-on:click="toHSM" v-show="currType">时分秒&gt;</span>
+      </div>
+      <div class="mask"></div>
+      <div class="selectRect"></div>
+      <div class="dt-container-wrap">
+        <div class="dt-container" v-bind:class="swipeClass">
+          <div class="dt-cell-col" v-for="col in coltypes">
+            <ul v-bind:coltype="col" v-datescroll="scrollEnd" v-bind:data-scrolltop="scrolltopvalue(col)">
+              <li class="dt-cell-row" v-for="data in getCols(col)">{{data}}</li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
-  </div>
+  </transition>
 </template>
 
 <script>
   import $Util from '../../assets/javascripts/util'
   import '../../directives/datescroll'
   import { bus } from '../../bus.js'
-  var targetEl = null;
   export default {
     name: 'DateTime',
-    props: {
-      cshow: '',
-      target: ''
-    },
     methods: {
+      afterLeave (el) {
+        this.confirmCallback(this.value);
+      },
       getCols (coltype) {
         return this.coldatas[coltype].datas;
       },
@@ -75,9 +74,10 @@
         this.currType = !this.currType;
       },
       confirm (e) {
-        targetEl = targetEl || document.getElementById(this.target);
-        targetEl.innerText = this.selectYear + "年" + this.selectMonth + "月" + this.selectDay + "日" + this.selectHour + "时" + this.selectMinute + "分" + this.selectSecond + "秒";
-        bus.$emit('hideOrShow', "fadeOut")
+        var msg =  this.selectYear + "年" + this.selectMonth + "月" + this.selectDay + "日" + this.selectHour + "时" + this.selectMinute + "分" + this.selectSecond + "秒";
+        this.value = msg;
+        this.show = false;
+        this.bindEl.innerText = msg;
       },
       scrolltopvalue (coltype) {
         let _index = this.coldatas[coltype].datas.indexOf(this.coldatas[coltype].curr) - 3;
@@ -121,10 +121,11 @@
         selectMinute: $Util.generateMinutes.curr,
         selectSecond: $Util.generateSeconds.curr,
 
-        maskYColTypes: [2017, 2017, 2017, 2017, 2017, 2017],
-
         swipeClass: "",
-        currType: true
+        currType: true,
+        show: false,
+        bindEl: null,
+        value:''
       };
     },
     computed: {
@@ -161,7 +162,7 @@
     width: 100%;
     height: 240px;
     position: fixed;
-    bottom: 0;
+    /*bottom: 0;*/
   }
 
   .fadeOut {
@@ -169,7 +170,7 @@
     width: 100%;
     height: 240px;
     position: fixed;
-    bottom: -240px;
+    /*bottom: -240px;*/
   }
 
   @-webkit-keyframes fadeIn {

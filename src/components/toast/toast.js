@@ -46,5 +46,4 @@ let Toast = (options = {}) => {
   return toast;
 
 };
-
 export default Toast;

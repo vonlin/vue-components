@@ -9,8 +9,7 @@
     <transition name="fade" v-on:after-leave="afterLeave">
       <div v-show="show">
         <div class="vc-toast-mask"></div>
-        <div class="vc-toast-content" :class="position">
-          <i class="vc-toast-status-icon"></i>
+        <div class="vc-toast-content iconfont_toast" :class="[position,icon]">
           <span class="vc-toast-msg">{{msg}}</span>
         </div>
       </div>
@@ -25,7 +24,8 @@
         return {
           show: false,
           msg: 'default msg',
-          position: 'middle'
+          position: 'middle',
+          icon:''
         }
       },
       props: {
@@ -41,6 +41,7 @@
 </script>
 
 <style scoped="scoped">
+  @import "../../../static/fonts/toast/iconfont.css";
   .fade-enter-active, .fade-leave-active {
     background-color: rgba(0,0,0,0.7);
     -webkit-transition: opacity .5s linear;
