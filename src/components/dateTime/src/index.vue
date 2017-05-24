@@ -22,9 +22,9 @@
 </template>
 
 <script>
-  import $Util from '../../assets/javascripts/util'
-  import '../../directives/datescroll'
-  import { bus } from '../../bus.js'
+  import $Util from '../../../assets/javascripts/util'
+  import '../../../directives/datescroll'
+  import { bus } from '../../../bus.js'
   export default {
     name: 'DateTime',
     methods: {

@@ -7,8 +7,7 @@
 
 <script>
   import DateTime from './dateTime.js'
-  import Toast from '../toast/toast.js'
-  import { bus } from '../../bus.js'
+  import { bus } from '../../../bus.js'
   var dateTime = null;
   export default {
     name: 'DateTime',
@@ -18,7 +17,7 @@
           dateTime = new DateTime({
             bindEl: document.getElementById("dt-fill"),
             confirmCallback (data) {
-              Toast({
+              this.$toast({
                 msg: data,
                 icon: 'toast-icon-right'
               });

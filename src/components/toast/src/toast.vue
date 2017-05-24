@@ -13,7 +13,7 @@
 
 <script>
 //  import toast from './index.vue'
-  import { bus } from '../../bus.js'
+  import { bus } from '../../../bus.js'
   import Toast from './toast.js'
   export default {
     name: 'Toast',

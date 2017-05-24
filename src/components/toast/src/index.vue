@@ -17,7 +17,7 @@
 </template>
 
 <script>
-  import { bus } from '../../bus.js'
+  import { bus } from '../../../bus.js'
   export default {
       name: "Toast",
       data () {
@@ -41,7 +41,7 @@
 </script>
 
 <style scoped="scoped">
-  @import "../../../static/fonts/toast/iconfont.css";
+  @import "../../../../static/fonts/toast/iconfont.css";
   .fade-enter-active, .fade-leave-active {
     background-color: rgba(0,0,0,0.7);
     -webkit-transition: opacity .5s linear;

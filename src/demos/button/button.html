@@ -9,38 +9,36 @@
 </head>
 <body>
   <div id="app">
-    {{msg}}
+    <btn  onclick="show()"></btn>
   </div>
 <div id="dt-fill"></div>
-<button onclick="show()">click</button>
 </body>
 <script>
+  var btn = Vue.component('Button')
+  console.log(vc.default.Toast)
+  new Vue({
+    el:'#app',
+    data:{
+        msg:"dsfds"
+    },
+    components:{btn}
+  });
 
-  var Toast = vc.Toast;
-  var DateTime = vc.DateTime;
-  var MessageBox = vc.MessageBox;
-
-
-
-//  var dt=null;
+  var dt=null;
   function show(){
-//      if(!dt){
-//        dt = new DateTime({
-//          bindEl: document.getElementById("dt-fill"),
-//          confirmCallback (data) {
-//            Toast({
-//              msg: data,
-//              icon: 'toast-icon-right'
-//            });
-//          }
-//        });
-//      }else{
-//          dt.show= true;
-//      }
-    MessageBox({
-      msg: "这是一个弹框",
-      type:'cancel-ok'
-    });
+      if(!dt){
+        dt = new Vue.$DateTime({
+          bindEl: document.getElementById("dt-fill"),
+          confirmCallback (data) {
+            Vue.$toast({
+              msg: data,
+              icon: 'toast-icon-right'
+            });
+          }
+        });
+      }else{
+          dt.show= true;
+      }
   }
 </script>
 </html>

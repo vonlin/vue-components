@@ -2,12 +2,28 @@
 import '../static/css/normalize.css'
 import '../static/css/style.css'
 
-import Toast from './components/toast/toast.js';
-import DateTime from './components/dateTime/dateTime.js';
-import MessageBox from './components/messagebox/messagebox.js';
+import Toast from './components/toast';
+import DateTime from './components/dateTime';
+import MessageBox from './components/messagebox';
+import Button from './components/button'
 
-export {
+
+const install = (Vue,options = {}) => {
+  Vue.component(Button.name,Button);
+
+  Vue.$toast = Vue.prototype.$toast = Toast;
+  Vue.$DateTime = Vue.prototype.$DateTime = DateTime;
+  Vue.$messgeBox = Vue.prototype.$messageBox = MessageBox;
+};
+
+if(typeof window !== 'undefined' && window.Vue){
+  install(window.Vue);
+}
+
+export default {
+  install,
   Toast,
   DateTime,
-  MessageBox
+  MessageBox,
+  Button
 }
