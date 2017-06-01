@@ -5,7 +5,8 @@ import '../static/css/style.css'
 import Toast from './components/toast';
 import DateTime from './components/dateTime';
 import MessageBox from './components/messagebox';
-import Button from './components/button'
+import Button from './components/button';
+import Loading from './components/loading';
 
 
 const install = (Vue,options = {}) => {
@@ -14,6 +15,7 @@ const install = (Vue,options = {}) => {
   Vue.$toast = Vue.prototype.$toast = Toast;
   Vue.$DateTime = Vue.prototype.$DateTime = DateTime;
   Vue.$messgeBox = Vue.prototype.$messageBox = MessageBox;
+  Vue.$loading = Vue.prototype.$loading = Loading;
 };
 
 if(typeof window !== 'undefined' && window.Vue){
@@ -25,5 +27,6 @@ export default {
   Toast,
   DateTime,
   MessageBox,
-  Button
+  Button,
+  Loading
 }

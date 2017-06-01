@@ -1,4 +1,4 @@
 /**
  * Created by Administrator on 2017/5/24.
  */
-export { default } from './src/button.vue'
+export { default } from './src/index.vue'

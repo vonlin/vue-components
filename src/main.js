@@ -11,15 +11,6 @@ import Homepage from '@/components/Main'
 import '../static/css/normalize.css'
 import '../static/css/style.css'
 
-import vc from './vc'
-Vue.use(vc);
-
-var FasClick = require('../static/lib/fastclick')
-if ('addEventListener' in document) {
-  document.addEventListener('DOMContentLoaded', function() {
-    FastClick.attach(document.body);
-  }, false);
-}
 
 /*
 * 解决 IOS 10 Safari 浏览器meta设置禁止缩放无效问题

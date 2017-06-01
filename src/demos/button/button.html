@@ -6,12 +6,40 @@
   <title>Button Demo</title>
   <script src="../vue.js"></script>
   <script src="../vc.min.js"></script>
+  <style>
+    #dt-fill{
+      width:30px;
+      height:30px;
+      border-radius:100%;
+      border-width:5px;
+      border-style:  solid;
+      border-color:#fff;
+      animation: rt 1s linear infinite;
+    }
+    @keyframes rt {
+      0% {
+        transform: rotate(0);
+        /*border-top-color: green;*/
+      }
+      25%{
+        border-top-color: green;
+        border-right-color: green;
+      }
+    100%{
+      transform: rotate(360deg);
+      border-top-color: green;
+      border-right-color: green;
+      border-bottom-color: green;
+    }
+    }
+  </style>
 </head>
 <body>
   <div id="app">
     <btn  onclick="show()"></btn>
   </div>
 <div id="dt-fill"></div>
+
 </body>
 <script>
   var btn = Vue.component('Button')

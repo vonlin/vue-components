@@ -1,12 +1,12 @@
 <template>
-  <div id="button" class="wrap">
-    <input type="button" value="success">
-  </div>
+  <btn message="clck"></btn>
 </template>
 
 <script>
+  import btn from './index.vue'
   export default {
-    name: 'Button'
+    name: 'Button',
+    components: {btn}
   }
 </script>
 
@@ -21,5 +21,7 @@
     outline: none;
     border:none;
     border-radius:3px;
+    color:#fff;
+    font-size:18px;
   }
 </style>
